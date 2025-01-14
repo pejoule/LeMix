@@ -11,7 +11,7 @@ The "train-then-inference" paradigm is commonly adopted in the deployment of lar
 </p>
 
 
-We first propose a baseline strategy, NAIVEMIX, which assigns tasks to nodes using a fair Round-Robin (RR) policy based on their in-queue order.
+We first propose a baseline strategy, NaiveMix, which assigns tasks to nodes using a fair Round-Robin (RR) policy based on their in-queue order.
 - Co-locate training and inference on a 2-node cluster (each holds 3 sharded stages)
 <p align="center">
   <img src="figure/mix_opportunity.png" width="100%" height="100%">
