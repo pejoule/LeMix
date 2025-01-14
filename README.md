@@ -87,6 +87,7 @@ LeMix supports a hybrid iteration-level batching of prefilling and decoding work
 <p align="center">
   <img src="figure/continuous_batching.png" width="50%" height="50%">
 </p>
+
 - Separate with autoregressive decoding (hybrid batching w/ iteration=4) + GPipe S-PP scheduling (M=2)
 <p align="center">
   <img src="figure/separate_opportunity_generation.png" width="60%" height="60%">
@@ -101,4 +102,9 @@ LeMix supports a hybrid iteration-level batching of prefilling and decoding work
 bash scripts/llama_generate.sh
 bash scripts/dialogpt_generate.sh
 ```
+- LEMIX consistently achieves the lowest latency in both prefilling (TTFT) and decoding (TBT) phases across all request rates.
+<p align="center">
+  <img src="figure/latency(generate)-lambda_nodes=4.png" alt="Figure 1" width="49%">
+  <img src="figure/latency(generate)-batch_nodes=4.png" alt="Figure 2" width="49%">
+</p>
 
