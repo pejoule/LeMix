@@ -17,8 +17,8 @@ We first propose a baseline strategy, NAIVEMIX, which assigns tasks to nodes usi
   <img src="figure/mix_opportunity.png" width="100%" height="100%">
 </p>
 
-To further improve the coarse-grained scheduling limitations in NaiveMix, we propose LEMIX that can dynamically adapt resource allocation based on workload characteristics and system conditions by understanding task-specific behaviors and resource contention
-across shared nodes. LEMIX effectively balances the trade-offs between utilization, serving quality, and serving responsiveness.
+To further improve the coarse-grained scheduling limitations in NaiveMix, we propose LeMix that can dynamically adapt resource allocation based on workload characteristics and system conditions by understanding task-specific behaviors and resource contention
+across shared nodes. LeMix effectively balances the trade-offs between utilization, serving quality, and serving responsiveness.
 - LeMix can consolidate active nodes and prioritizes tasks based on workload charactersitics and system conditions
 <p align="center">
   <img src="figure/lemix_consolidation.png" width="60%" height="60%">
