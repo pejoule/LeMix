@@ -86,6 +86,16 @@ bash scripts/parameter_study.sh
 bash scripts/llama_SPP.sh
 bash scripts/dialogpt_SPP.sh
 ```
+- We compare LeMix with other methods in inference loss, throughput, and response time SLO attainment.
+<p align="center">
+  <img src="figure/loss_spp.png" width="70%" height="70%">
+</p>
+<p align="center">
+  <img src="figure/throughput_spp.png" width="70%" height="70%">
+</p>
+<p align="center">
+  <img src="figure/SLO_response_spp.png" width="70%" height="70%">
+</p>
 
 ### Autoregressive decoding (Llama2 & GPT): inference (prefilling & decoding) + training (S-PP)
 LeMix supports a hybrid iteration-level batching of prefilling and decoding workloads for serving. 
@@ -107,10 +117,16 @@ LeMix supports a hybrid iteration-level batching of prefilling and decoding work
 bash scripts/llama_generate.sh
 bash scripts/dialogpt_generate.sh
 ```
-- LEMIX consistently achieves the lowest latency in both prefilling (TTFT) and decoding (TBT) phases across all request rates, where prioritization (§4.3) and memory-aware runtime scheduling (§4.4) contribute significantly to the decoding phase compared to other co-location methods.
-<p align="center">
+- LEMIX consistently achieves the lowest latency in both prefilling (TTFT) and decoding (TBT) phases across all request rates. Specifically, task planning (§4.2) and resoure allocation (§4.3) primarily affect prefilling performance, while prioritization (§4.3) and runtime scheduling (§4.4) contribute significantly to the decoding phase compared to other co-location methods.
+<!-- <p align="center">
   <img src="figure/latency(generate)-lambda_nodes=4.png" alt="Figure 1" width="49%">
   <img src="figure/latency(generate)-batch_nodes=4.png" alt="Figure 2" width="49%">
+</p> -->
+<p align="center">
+  <img src="figure/latency(generate)-lambda_nodes=4.png" width="70%" height="70%">
+</p>
+<p align="center">
+  <img src="figure/latency(generate)-batch_nodes=4.png" width="70%" height="70%">
 </p>
 
 ### Data parallelism (GPT): inference (prefilling) + training (DP)
