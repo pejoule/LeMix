@@ -119,11 +119,11 @@ bash scripts/dialogpt_dp.sh
 ```
 - We compare LeMix with other methods in inference loss, throughput, and response time SLO attainment.
 <p align="center">
-  <img src="figure/loss_dp.png" width="50%" height="50%">
+  <img src="figure/loss_dp.png" width="70%" height="70%">
 </p>
 <p align="center">
-  <img src="figure/throughput_dp.png" width="50%" height="50%">
+  <img src="figure/throughput_dp.png" width="70%" height="70%">
 </p>
 <p align="center">
-  <img src="figure/SLO_response_dp.png" width="50%" height="50%">
+  <img src="figure/SLO_response_dp.png" width="70%" height="70%">
 </p>
