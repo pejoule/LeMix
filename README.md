@@ -3,7 +3,7 @@ Concurrent Training and Serving of Large Language Models in Distributed Systems
 
 ## An illustration of Separate and Co-location strategies under concurrent workloads
 
-The "train-then-inference" paradigm is commonly adopted in the deployment of large language models and other deep learning models, resulting in GPU under-utilization in distributed systems. Our empirical analysis reveals that these inefficiencies stem from dynamic request arrivals during serving and workload heterogeneity in pipeline-parallel training. 
+The "train-then-inference" paradigm is commonly adopted in the deployment of large language models and other deep learning models, resulting in GPU under-utilization and inconsistent model update in distributed systems. Our empirical analysis reveals that these inefficiencies stem from dynamic request arrivals during serving and workload heterogeneity in pipeline-parallel training. 
 
 - Separate training and inference on a 2-node cluster (each holds 3 sharded stages)
 <p align="center">
@@ -25,15 +25,20 @@ across shared nodes. LeMix effectively balances the trade-offs between utilizati
 </p>
 
 
-## Quickstart
+## Installation
 
 ### Setup Environment
-- python 3.10.8
+- python 3.10
 - pytorch 1.13.0+
 - Install dependencies
 ```
+conda create -n lemix python=3.10
+# Optional: Install CUDA via conda for a smoother installation experience and profiling experiments
 pip install -r requirements.txt
 ```
+For more details on installing CUDA via conda, refer to the [CUDA Installation Guide by NVIDIA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#conda-installation).
+
+## Evaluation
 
 ### Main evaluation (Llama2 & GPT): inference (prefilling) + training (A-PP)
 ```
@@ -78,6 +83,10 @@ bash scripts/dialogpt_SPP.sh
 ```
 
 ### Autoregressive decoding (Llama2 & GPT): inference (prefilling & decoding) + training (S-PP)
+LeMix supports a hybrid iteration-level batching of prefilling and decoding workloads for serving. 
+<p align="center">
+  <img src="figure/continuous_batching.png" width="50%" height="50%">
+</p>
 - Separate with autoregressive decoding (hybrid batching w/ iteration=4) + GPipe S-PP scheduling (M=2)
 <p align="center">
   <img src="figure/separate_opportunity_generation.png" width="60%" height="60%">
