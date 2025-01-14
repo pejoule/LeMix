@@ -3,17 +3,23 @@ Concurrent Training and Serving of Large Language Models in Distributed Systems
 
 ## An illustration of Separate and Co-location strategies under concurrent workloads
 
+The "train-then-inference" paradigm is commonly adopted in the deployment of large language models and other deep learning models, resulting in GPU under-utilization in distributed systems. Our empirical analysis reveals that these inefficiencies stem from dynamic request arrivals during serving and workload heterogeneity in pipeline-parallel training. 
+
 - Separate training and inference on a 2-node cluster (each holds 3 sharded stages)
 <p align="center">
   <img src="figure/separate_opportunity.png" width="100%" height="100%">
 </p>
 
+
+We first propose a baseline strategy, NAIVEMIX, which assigns tasks to nodes using a fair Round-Robin (RR) policy based on their in-queue order.
 - Co-locate training and inference on a 2-node cluster (each holds 3 sharded stages)
 <p align="center">
   <img src="figure/mix_opportunity.png" width="100%" height="100%">
 </p>
 
-- LeMix can dynamically adapt resource allocation (e.g., consolidate active nodes) and task priorities based on workload charactersitics and system conditions
+To further improve the coarse-grained scheduling limitations in NaiveMix, we propose LEMIX that can dynamically adapt resource allocation based on workload characteristics and system conditions by understanding task-specific behaviors and resource contention
+across shared nodes. LEMIX effectively balances the trade-offs between utilization, serving quality, and serving responsiveness.
+- LeMix can consolidate active nodes and prioritizes tasks based on workload charactersitics and system conditions
 <p align="center">
   <img src="figure/lemix_consolidation.png" width="60%" height="60%">
 </p>
