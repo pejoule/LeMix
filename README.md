@@ -3,11 +3,12 @@ Concurrent Training and Serving of Large Language Models in Distributed Systems
 
 ## Abstract
 
-The "train-then-inference" paradigm is commonly adopted in the deployment of large language models and other deep learning models, resulting in GPU under-utilization (see the below profiling results on LMSYS workload traces) and inconsistent model update in distributed systems. Our empirical analysis reveals that these inefficiencies stem from dynamic request arrivals during serving and workload heterogeneity in pipeline-parallel training. 
+The "train-then-inference" paradigm is commonly adopted in the deployment of large language models and other deep learning models, resulting in GPU under-utilization (see the below profiling results on LMSYS workload traces) and inconsistent model update in distributed systems.  
 <p align="center">
   <img src="figure/GPU_util.png" width="100%" height="100%">
 </p>
 
+Our motivation study reveals that these inefficiencies stem from dynamic request arrivals during serving and workload heterogeneity in pipeline-parallel training.
 - Separate training and inference on a 2-node cluster (each holds 3 sharded stages)
 <p align="center">
   <img src="figure/separate_opportunity.png" width="100%" height="100%">
