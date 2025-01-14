@@ -77,7 +77,7 @@ bash scripts/dialogpt_SPP.sh
   <img src="figure/separate_opportunity_generation.png" width="60%" height="60%">
 </p>
 
-- Co-locate with autoregressive decoding (hybrid batching w/ iteration=4) + GPipe S-PP scheduling (M=2). $\emph{A}$ and $\emph{B}$ denote different requests. Subscript $\emph{d}$ represents a decode iteration and $\emph{p}$ represents a prefill operation.
+- Co-locate with autoregressive decoding (hybrid batching w/ iteration=4) + GPipe S-PP scheduling (M=2). *A* and *B* denote different requests. Subscript *d* represents a decode iteration and *p* represents a prefill operation.
 <p align="center">
   <img src="figure/mix_opportunity_generation.png" width="60%" height="60%">
 </p>
